@@ -4,18 +4,18 @@
   angular.module('ngtodos')
           .factory('TodoService', TodoService);
 
-  TodoService.$inject = ['$http'];
+          TodoService.$inject = ['$http'];
 
-    function TodoService($http){
+          function TodoService($http){
             //do not forget the slash !!!!!
             //
-    var baseURL = 'https://quiet-refuge-27140.herokuapp.com/';
-      var o = {
-          create: createTodo, //function
-          readAll: getAll, //function
-          update: updateTodo, //function
-          delete: deleteTodo, //function
-          todos: [] //data
+            var baseUrl = 'https://quiet-refuge-27140.herokuapp.com/';
+            var o = {
+              create: createTodo, //function
+              readAll: getAll, //function
+              update: updateTodo, //function
+              delete: deleteTodo, //function
+              todos: [] //data
         };
     return o;
 
@@ -36,25 +36,25 @@
               o.todos = response.data;
   });
   }
-              // var newTodo = {
-              //   description: 'new description or at least the old one',
-              //   isComplete: 'new complete status or at least the old one'
-              // };
+  // var newTodo = {
+  //   description: 'new description or at least the old one',
+  //   isComplete: 'new complete status or at least the old one'
+  // };
     function updateTodo(id, newTodo){
       return $http.put(baseUrl+'todos/'+id, newTodo)
                   .then(function(response){
             console.log('update',response);
                   getAll();
-  });
-  }
-  function deleteTodo(id){
-    return $http.delete(baseUrl+'todos/'+id)
+    });
+    }
+    function deleteTodo(id){
+      return $http.delete(baseUrl+'todos/'+id)
                 .then(function(response){
             console.log('delete', response);
                   getAll();
-  })
+   })
   }
 
 
   }
-  })()
+})()
