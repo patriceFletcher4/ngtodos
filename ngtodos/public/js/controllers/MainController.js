@@ -1,7 +1,7 @@
 
 (function(){
   angular.module('ngtodos') //getter
-        .controller('MainController', MainController);
+        .controller('MainController', MainController); //name and associate function (how it behaves)
 
   MainController.$inject = ['$scope', 'TodoService'];
 
