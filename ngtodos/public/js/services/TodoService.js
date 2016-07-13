@@ -48,7 +48,7 @@
     });
     }
     function deleteTodo(id){
-      return $http.delete(baseUrl+'todos/'+id)
+      return $http.delete(baseUrl+ 'todos/'+id)
                 .then(function(response){
             console.log('delete', response);
                   getAll();
